@@ -1,0 +1,24 @@
+package assignment8.pkg3;
+
+/**
+ *
+ * @author mounika
+ */
+public class ASSIGNMENT83 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+         bankaccount bc = new bankaccount(2000);
+       withdrawaccount wd = new withdrawaccount(bc,10);
+      Thread wd1 = new Thread(wd);
+      wd1.setName("T");
+ 
+      Thread wd2 = new Thread(wd);
+      wd2.setName("T1");
+ 
+      wd1.start();
+      wd2.start();
+  
+    }
+    
+}
