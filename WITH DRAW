@@ -1,0 +1,41 @@
+package assignment8.pkg3;
+
+/**
+ *
+ * @author mounika
+ */
+class withdrawaccount implements Runnable{
+    private bankaccount Acc;
+     private int Amount;
+ 
+     public withdrawaccount(){
+         Acc = null;
+         Amount = 0;
+     }
+ 
+     public withdrawaccount(bankaccount acc,int amount){
+         this.Acc = acc;
+         this.Amount = amount;
+     }
+ 	public void run() {
+ 		int wd; 
+ 
+         for(int i =0; i<30; i++){
+             try {
+                 Thread.sleep(100);
+             } catch (InterruptedException e) {
+                 // TODO Auto-generated catch block
+                 e.printStackTrace();
+             }
+ 
+             System.out.println("Balance Before "+Thread.currentThread().getName()+" Withdrawl: "+Acc.getBalance());
+             wd = Acc.withdraw(Amount);
+             System.out.println("Balance after "+Thread.currentThread().getName()+" withdrawl: "+Acc.getBalance());
+             System.out.println("amount with drawn by: "+Thread.currentThread().getName()+" "+wd);
+         
+         }
+        }
+}
+        
+    
+
